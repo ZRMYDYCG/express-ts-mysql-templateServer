@@ -8,5 +8,5 @@ const port = 3000;
 app.use(express.json());
 
 app.listen(port, () => {
-    console.log('服务启动');
+  console.log('服务启动');
 });
