@@ -2,5 +2,9 @@
   "description": "",
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "typescript": "3.8.3"
   }
 }
