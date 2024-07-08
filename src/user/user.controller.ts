@@ -11,7 +11,6 @@ export const store = async (
     next: NextFunction
 ) => {
     const { name, password } = request.body
-
     try {
         const data = await userService.createUser({ name, password })
         response.status(201).send(data)

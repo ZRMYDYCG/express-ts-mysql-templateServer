@@ -1,9 +1,16 @@
 "use strict";
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const post_server_1 = require("./post.server");
+const userService = __importStar(require("./post.server"));
 exports.index = async (request, response, next) => {
     try {
-        const posts = await post_server_1.getPosts();
+        const posts = await userService.getPosts();
         response.send(posts);
     }
     catch (error) {
@@ -13,7 +20,7 @@ exports.index = async (request, response, next) => {
 exports.store = async (request, response, next) => {
     const { title, content } = request.body;
     try {
-        const data = await post_server_1.createPost({ title, content });
+        const data = await userService.createPost({ title, content });
         response.status(201).send(data);
     }
     catch (error) {
@@ -24,7 +31,7 @@ exports.update = async (request, response, next) => {
     const { postId } = request.params;
     const { title, content } = request.body;
     try {
-        const data = await post_server_1.updatePost(parseInt(postId, 10), { title, content });
+        const data = await userService.updatePost(parseInt(postId, 10), { title, content });
         response.send(data);
     }
     catch (error) {
@@ -34,7 +41,7 @@ exports.update = async (request, response, next) => {
 exports.destroy = async (request, response, next) => {
     const { postId } = request.params;
     try {
-        const data = await post_server_1.deletePost(parseInt(postId, 10));
+        const data = await userService.deletePost(parseInt(postId, 10));
         response.send(data);
     }
     catch (error) {

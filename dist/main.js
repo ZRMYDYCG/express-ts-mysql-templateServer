@@ -7,13 +7,15 @@ const index_1 = __importDefault(require("./app/index"));
 const app_config_1 = require("./app/app.config");
 const mysql_1 = require("./app/database/mysql");
 index_1.default.listen(app_config_1.APP_PORT, () => {
-    console.log('Server run at 3000 🚀');
+    console.log('🚀 Server run at localhost:3000');
 });
 mysql_1.connection.connect(error => {
     if (error) {
-        console.log("连接失败：", error.message);
+        console.log("🦠 连接失败:", error.message);
         return;
     }
-    console.log("success");
+    else {
+        console.log("🚀 Database is connected");
+    }
 });
 //# sourceMappingURL=main.js.map

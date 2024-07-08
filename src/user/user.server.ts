@@ -17,3 +17,17 @@ export const createUser = async (user: UserModel) => {
     // 提供数据
     return data
 }
+
+/**
+ * 按用户名查找用户
+*/
+export const getUserByName = async (name: string) => {
+    const statement = `
+    SELECT id, name
+    FROM user
+    WGERE name = ?
+    `
+    const [data] = await connection.promise().query(statement, name)
+
+    return data[0]
+}

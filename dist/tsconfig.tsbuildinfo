@@ -630,11 +630,11 @@
         "signature": "66fe907feec7a0b7873f9e255ccb6433255a141fa3ff5e537688607b8e0871e2"
       },
       "../src/post/post.server.ts": {
-        "version": "4ea96e0e9215c3027c32e135da53acbb082a43548930c31016556af8201e22db",
+        "version": "25772b7fd3a37b658d252ecd9b06f5ee202f67e315f9913a3410ccc2536f6c3b",
         "signature": "537936a4dc3387c108ed0bb6177bd152e9a7eb1384c9058c7ee676f6e328cc5e"
       },
       "../src/post/post.controller.ts": {
-        "version": "71e20d3ba112a9e5fe8e4148e834257dcce4d5a76eec6588c89f6097100a6274",
+        "version": "9ad4f279659d8f8dcbf9f80b1d9d113a9304b6dcc6700b0725528860d751450b",
         "signature": "98b6581dde4c99c46c0e59f2bad9d7c960638e972d560da2c1286cb4e94bb17a"
       },
       "../src/app/app.middleware.ts": {
@@ -645,12 +645,36 @@
         "version": "6a092321bcff8e3200b32ceb6a91b2051d5e71f3a936f2b9104171a78baa73b9",
         "signature": "5ecba3ff11fdbdeae8cf783bed4d372cf9d390f280adb3cc57628459e8525444"
       },
+      "../src/user/user.model.ts": {
+        "version": "f7e06c0ec83d4b1092eb3037218d1ff20d5b8faea54d5a73c66ca94adf384c49",
+        "signature": "c0c4f6e95c87e2adb92ab955bf7156bfa015433ec41ebfe889c40ceedcdfdc6a"
+      },
+      "../src/user/user.server.ts": {
+        "version": "7fd4d584175dacb983853ec8660253e4702fe4de96fd5eda4bc126e971f3e2c1",
+        "signature": "fdb2d9ef12968eff6f8ff2216fbfa8bea2af5ca53e467f5b12c212753020f30e"
+      },
+      "../src/user/user.controller.ts": {
+        "version": "f4ab34b3447b29bc43306a77458260d1babb75a20bc09e73a435c2d144f72551",
+        "signature": "ce5068e59a4c17a4d73fe44e17b32e9c6b0af8208e2f59318e9fb49dc05456c6"
+      },
+      "../src/user/user.middleware.ts": {
+        "version": "0117acc40199af3c68dcbec06ce74ca7627311739afa51782377bf60717c7923",
+        "signature": "3dd42d325b35ae99de535128e910f8630cae670b904f112112d96fec3747bd5e"
+      },
+      "../src/user/user.router.ts": {
+        "version": "4cc1bb4dbd60fe21c90a5e41c2306eb5915d93b20b9c303bc097ba16b866fcbb",
+        "signature": "5ecba3ff11fdbdeae8cf783bed4d372cf9d390f280adb3cc57628459e8525444"
+      },
       "../src/app/index.ts": {
-        "version": "a0d219280a2c10ef466d6260bb2a8c0fd248548fe24823f9e46ed2e8a48885b9",
+        "version": "81b4c3ce8f93a5a9e2c651dab2d0d91731cea9e5cf7374f00b1b7584919d9dac",
         "signature": "641c6386540527832909835965dea6401687290c12314a2c9cd15208e415f269"
       },
       "../src/main.ts": {
-        "version": "94568018d1d7c6afe8594614ffc1be229f37f50408e59f4edd3d905914546135",
+        "version": "d29f74d1015e12ae5a6eeae44cde93b835abfb5374ec5e08d2dd8b9a3b45182c",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
+      },
+      "../src/post/post.middleware.ts": {
+        "version": "a72c39b85d57cc7a8a42eccab7f7e85ced3855f9b309c74886d6e754b56b9706",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "../node_modules/@types/lodash/ts3.1/common/common.d.ts": {
@@ -1321,15 +1345,38 @@
         "../src/post/post.controller.ts",
         "../src/app/app.middleware.ts"
       ],
+      "../src/user/user.server.ts": [
+        "../src/app/database/mysql.ts",
+        "../src/user/user.model.ts"
+      ],
+      "../src/user/user.controller.ts": [
+        "../node_modules/@types/express/index.d.ts",
+        "../src/user/user.model.ts",
+        "../src/user/user.server.ts"
+      ],
+      "../src/user/user.middleware.ts": [
+        "../node_modules/@types/express/index.d.ts",
+        "../src/user/user.server.ts"
+      ],
+      "../src/user/user.router.ts": [
+        "../node_modules/@types/express/index.d.ts",
+        "../src/user/user.controller.ts",
+        "../src/user/user.middleware.ts"
+      ],
       "../src/app/index.ts": [
         "../node_modules/@types/express/index.d.ts",
         "../src/post/post.router.ts",
+        "../src/user/user.router.ts",
         "../src/app/app.middleware.ts"
       ],
       "../src/main.ts": [
         "../src/app/index.ts",
         "../src/app/app.config.ts",
         "../src/app/database/mysql.ts"
+      ],
+      "../src/post/post.middleware.ts": [
+        "../node_modules/@types/express/index.d.ts",
+        "../src/post/post.server.ts"
       ],
       "../node_modules/@types/lodash/ts3.1/common/common.d.ts": [
         "../node_modules/@types/lodash/ts3.1/index.d.ts",
@@ -2108,6 +2155,17 @@
         "../node_modules/@types/express-serve-static-core/index.d.ts",
         "../node_modules/@types/qs/index.d.ts"
       ],
+      "../src/user/user.server.ts": [
+        "../node_modules/@types/mysql/lib/protocol/packets/rowdatapacket.d.ts",
+        "../node_modules/@types/mysql/lib/protocol/packets/okpacket.d.ts",
+        "../node_modules/@types/mysql/lib/protocol/packets/resultsetheader.d.ts",
+        "../src/user/user.model.ts"
+      ],
+      "../src/user/user.controller.ts": [
+        "../node_modules/@types/express-serve-static-core/index.d.ts",
+        "../node_modules/@types/qs/index.d.ts",
+        "../node_modules/@types/express/index.d.ts"
+      ],
       "../node_modules/@types/lodash/ts3.1/common/common.d.ts": [
         "../node_modules/@types/lodash/ts3.1/index.d.ts",
         "../node_modules/@types/lodash/ts3.1/common/array.d.ts",
@@ -2289,6 +2347,11 @@
         "../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
         "../node_modules/@types/lodash/ts3.1/common/string.d.ts",
         "../node_modules/@types/lodash/ts3.1/common/util.d.ts"
+      ],
+      "../src/user/user.middleware.ts": [
+        "../node_modules/@types/express-serve-static-core/index.d.ts",
+        "../node_modules/@types/qs/index.d.ts",
+        "../node_modules/@types/express/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": []
