@@ -1,5 +1,5 @@
 import { connection } from "../app/database/mysql"
-import { PostModel } from "./post.model";
+import { PostModel } from "./post.model"
 
 /**
  * 获取内容列表
@@ -11,7 +11,7 @@ export const getPosts = async () => {
     FROM post
     LEFT JOIN user
         ON post.userId = user.id
-    `;
+    `
 
     // 执行查询
     const [data] = await connection.promise().query(statement)
