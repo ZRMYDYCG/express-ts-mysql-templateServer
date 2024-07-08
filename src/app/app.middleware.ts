@@ -57,7 +57,13 @@ export const defaultErrorHandler = (
             break
         case 'UserName_IS_Exited':
             statusCode = 409
-            message = '用户名已经存在'
+            message = '用户名已被占用'
+        case 'USER_DOES_NOT_EXOST':
+            statusCode = 400
+            message = '用户不存在'
+        case 'PASSWORD_DOES_NOT_MATCH':
+            statusCode = 400
+            message = '密码不正确'
         default:
             statusCode = 500
             message = "服务器暂时出了点问题"
