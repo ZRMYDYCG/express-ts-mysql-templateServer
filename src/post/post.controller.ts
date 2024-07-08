@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from 'express'
-import { getPosts, createPost, updatePost, deletePost } from './post.server'
+import * as userService from './post.server'
 
 /**
  * 内容列表
@@ -10,7 +10,7 @@ export const index = async (
     next: NextFunction
 ) => {
     try {
-        const posts = await getPosts()
+        const posts = await userService.getPosts()
         response.send(posts)
     } catch (error) {
         next(error)
@@ -28,7 +28,7 @@ export const store = async (
     const { title, content } = request.body
 
     try {
-        const data = await createPost({ title, content })
+        const data = await userService.createPost({ title, content })
         response.status(201).send(data)
     } catch (error) {
         next(error)
@@ -50,7 +50,7 @@ export const update = async (
     const { title, content } = request.body
 
     try {
-        const data = await updatePost(parseInt(postId, 10), { title, content })
+        const data = await userService.updatePost(parseInt(postId, 10), { title, content })
         response.send(data)
     } catch (error) {
         next(error)
@@ -70,7 +70,7 @@ export const destroy = async (
 
     // 删除内容
     try {
-        const data = await deletePost(parseInt(postId, 10))
+        const data = await userService.deletePost(parseInt(postId, 10))
         response.send(data)
     } catch (error) {
         next(error)
