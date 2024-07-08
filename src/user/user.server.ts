@@ -25,7 +25,7 @@ export const getUserByName = async (name: string) => {
     const statement = `
     SELECT id, name
     FROM user
-    WGERE name = ?
+    WHERE name = ?
     `
     const [data] = await connection.promise().query(statement, name)
 

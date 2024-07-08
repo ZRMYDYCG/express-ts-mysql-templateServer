@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express"
+import bcrypt from 'bcrypt'
 import * as userService from './user.server'
 
 /**
@@ -25,5 +26,20 @@ export const validateUserData = async (
     }
 
     // 进行下一步的处理
+    next()
+}
+
+/**
+ * HASH 密码中间件
+*/
+export const hashPassword = async (
+    request: Request,
+    response: Response,
+    next: NextFunction
+) => {
+    const { password } = request.body
+
+    request.body.password = await bcrypt.hash(password, 10)
+
     next()
 }
