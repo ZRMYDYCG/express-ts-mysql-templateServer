@@ -1,6 +1,13 @@
 import { error } from 'console'
 import type { Request, Response, NextFunction } from 'express'
 
+/***********
+ * 局部中间件
+ * requestUrl
+ * 
+ * 
+ * ***********/
+
 /**
  * 输出请求地址
  * */
@@ -14,6 +21,13 @@ export const requestUrl = (
 }
 
 
+/***********
+ * 应用级别中间件
+ * defaultErrorHandler
+ * 
+ * 
+ * ***********/
+
 /**
  * 异常处理器
 */
@@ -23,6 +37,10 @@ export const defaultErrorHandler = (
     response: Response,
     next: NextFunction
 ) => {
+    if (error.message) {
+        console.log('🦠', error.message)
+    }
+
     let statusCode: number, message: string
 
     /**
