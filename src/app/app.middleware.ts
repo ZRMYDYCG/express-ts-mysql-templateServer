@@ -64,6 +64,9 @@ export const defaultErrorHandler = (
         case 'PASSWORD_DOES_NOT_MATCH':
             statusCode = 400
             message = '密码不正确'
+        case 'UNAUTHORIZED':
+            statusCode = 401
+            message = '请先登录'
         default:
             statusCode = 500
             message = "服务器暂时出了点问题"

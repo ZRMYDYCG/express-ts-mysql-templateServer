@@ -20,3 +20,9 @@ export const {
     MYSQL_PASSWORD,
     MYSQL_DATABASE
 } = process.env
+
+/**
+ * 密钥配置
+*/
+export const PRIVATE_KEY = Buffer.from(process.env.PRIVATE_KEY, 'base64').toString('utf-8')
+export const PUBLIC_KEY = Buffer.from(process.env.PUBLIC_KEY, 'base64').toString('utf-8')

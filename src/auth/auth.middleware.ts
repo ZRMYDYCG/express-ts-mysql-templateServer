@@ -1,6 +1,9 @@
 import type { Request, Response, NextFunction } from 'express'
 import * as userService from '../user/user.server'
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
+import { PUBLIC_KEY } from '../app/app.config'
+import { TokenPayload } from './auth.interface'
 
 
 /**
@@ -30,6 +33,43 @@ export const validateLoginData = async (
     const matched = await bcrypt.compare(password, user.password)
     if (!matched) return next(new Error('PASSWORD_DOES_NOT_MATCH'))
 
+    // 在请求主体里面添加用户
+    request.body.user = user
+
     // 进行下一步的处理
     next()
+}
+
+/**
+ * 验证用户身份
+*/
+export const authGuard = (
+    request: Request,
+    response: Response,
+    next: NextFunction
+) => {
+    try {
+        // 提取 Autorization
+        const authorization = request.header('Authorization')
+        if (!authorization) {
+            throw new Error()
+        }
+
+        // 提取 JWT 令牌
+        const token = authorization.replace('Bearer ', '')
+        if (!token) throw new Error()
+
+        // 验证令牌
+        const decoded = jwt.verify(token, PUBLIC_KEY, {
+            algorithms: ['RS256']
+        })
+
+        // 在请求里添加当前用户
+        request.user = decoded as TokenPayload
+
+        // 下一步
+        next()
+    } catch (error) {
+        next(new Error('UNAUTHORIZED'))
+    }
 }

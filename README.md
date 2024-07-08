@@ -12,6 +12,8 @@ Express.js 是一个灵活的 Node.js web 应用框架，它提供了一系列�
 
 四、[MySql笔记专栏](https://blog.csdn.net/i_r_o_n_m_a_n/category_11736487.html)
 
+六、[OpenSSL下载安装教程](https://blog.csdn.net/weixin_52203618/article/details/128544679?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522172043214116800185834942%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=172043214116800185834942&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-2-128544679-null-null.142^v100^pc_search_result_base4&utm_term=OpenSSL%E5%AE%89%E8%A3%85&spm=1018.2226.3001.4187)
+
 ## 开发工具 VSCode
 
 如何设置代码排版工具:
@@ -142,6 +144,10 @@ DataGrip
 ## Hash 处理用户账户信息
 
 Hash对于用户的密码设置可以使得用户信息更加安全, 这么做可以使得即使是开发者也不知道用户所填写的密码。
+
+## 验证身份登录
+
+![](https://pic.imgdb.cn/item/668bad51d9c307b7e9cbe810.png)
 
 ## 提问-AI
 
